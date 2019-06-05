@@ -1,10 +1,19 @@
 project(BTree)
 # set(CMAKE_VERBOSE_MAKEFILE 1)
+if(CMAKE_OLD)
 cmake_minimum_required(VERSION 2.8)
+else(CMAKE_OLD)
+cmake_minimum_required(VERSION 3.1)
+endif(CMAKE_OLD)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF) ## on g++ this ensures: -std=c++11 and not -std=gnu++11
 
+if(CPP_STATIC)
+set(CMAKE_CXX_FLAGS "-m64 -Wall -Wextra -static")
+else(CPP_STATIC)
+set(CMAKE_CXX_FLAGS "-m64 -Wall -Wextra")
+endif(CPP_STATIC)
 
 
 #### Build setting
